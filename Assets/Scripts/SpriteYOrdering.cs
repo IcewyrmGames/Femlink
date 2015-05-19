@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[ExecuteInEditMode()]
 public class SpriteYOrdering : MonoBehaviour {
 	public bool sortOnStartup = true;
 	public bool sortOnUpdate = false;
@@ -19,7 +20,7 @@ public class SpriteYOrdering : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (sortOnUpdate) {
+		if (sortOnUpdate || Application.isEditor) {
 			Sort();
 		}
 	}
