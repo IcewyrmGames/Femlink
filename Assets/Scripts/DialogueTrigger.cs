@@ -9,7 +9,7 @@ public class DialogueTrigger : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.tag == "Player") {
 			dialogue.Begin();
-			if (runOnce) {enabled = false;}
+			if (runOnce) {Destroy(this);}
 		}
 	}
 }

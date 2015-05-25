@@ -33,7 +33,7 @@ public class FireProjectileBehavior : StateMachineBehaviour {
 	// OnStateMachineEnter is called when entering a statemachine via its Entry Node
 	override public void OnStateMachineEnter(Animator animator, int stateMachinePathHash){
 		GameObject go = (GameObject)Instantiate(projectile, animator.transform.position, Quaternion.identity);
-		go.layer = animator.gameObject.layer;
+		//go.layer = animator.gameObject.layer;
 		Rigidbody2D rigidbody = go.GetComponent<Rigidbody2D>();
 		rigidbody.velocity = new Vector2(animator.GetFloat("Horizontal")*speed, animator.GetFloat("Vertical")*speed);
 	}

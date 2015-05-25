@@ -89,10 +89,11 @@ public class Dialogue : MonoBehaviour {
 		Hashtable table = new Hashtable();
 		table.Add("ignoretimescale", true);
 		table.Add("position", node.position);
+		table.Add("islocal", true);
 		table.Add("time", node.moveTime);
 		iTween.MoveTo(node.obj, table);
 		yield return StartCoroutine( WaitInterrupt(node.moveTime) );
-		node.obj.transform.position = node.position;
+		node.obj.transform.localPosition = node.position;
 		Debug.Log("MoveNode End");
 	}
 
