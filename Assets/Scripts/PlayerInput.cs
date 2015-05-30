@@ -2,7 +2,8 @@
 using System.Collections;
 
 public class PlayerInput : MonoBehaviour {
-	public bool canControl;
+	public bool canControl = true;
+	public bool canFireBolts = false;
 
 	public CharacterMovement movement;
 	public Animator animator;
@@ -29,8 +30,12 @@ public class PlayerInput : MonoBehaviour {
 				animator.SetTrigger("Melee");
 			}
 
-		} else if (Input.GetButtonDown("Fire2")) {
+		} else if (Input.GetButtonDown("Fire2") && canFireBolts) {
 			animator.SetTrigger("Ranged");
 		}
+	}
+
+	public void AquireBolts() {
+		canFireBolts = true;
 	}
 }

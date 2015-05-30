@@ -3,6 +3,7 @@ using UnityEngine.Events;
 using System.Collections;
 
 public class PuzzleManager : MonoBehaviour {
+	public bool triggerOnce;
 	public PuzzleTrigger[] triggers;
 
 	public UnityEvent OnTriggered;
@@ -19,6 +20,8 @@ public class PuzzleManager : MonoBehaviour {
 			} else {
 				OnReset.Invoke();
 			}
+
+			if (_triggered && triggerOnce) Destroy (gameObject);
 		}
 	}
 

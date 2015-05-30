@@ -26,13 +26,17 @@ public class Torch : PuzzleTrigger {
 
 			//the bolt is lit but the torch is not
 			} else if (!particles.isPlaying && b.particles.isPlaying) {
-				particles.Play();
-				Lit = true;
+				Ignite();
 			}
 		}
 	}
 
 	public override bool isTriggered() {
 		return particles.isPlaying;
+	}
+
+	public void Ignite() {
+		particles.Play();
+		Lit = true;
 	}
 }
